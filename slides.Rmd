@@ -1,5 +1,5 @@
 ---
-title: "MODULE NAME"
+title: "Measuring Advertising Effectiveness"
 subtitle: "Digital and Social Media Strategies"
 author: "Lachlan Deer"
 institute: "Tilburg University"
@@ -17,17 +17,381 @@ class: font200
 
 # Learning Goals for this Week
 
-TBD
+At the end of this lecture, you should be able to:
+
+* Explain the difficulties faced in measuring advertising effectiveness 
+* Identify why previous approaches to advertising effectiveness (e.g. PSAs) aren't optimal 
+* Explain the workings of the "Ghost Ad" methodology at an intuitive level
+* Explain why advertising context matters online 
+* Discuss an approach to measure the value of advertising context 
+
+---
+# Online Advertising is HUGE!
+
+
+```{r, echo = FALSE, fig.align = "center", out.width="60%"}
+knitr::include_graphics("figs/digital_ad_spend.png")
+```
+
+---
+# The Business Problem
+
+**Seeking Answers to Strategic Questions:**
+
+1. Are company X's online ads effective at increasing their KPIs?
+2. Does the context where company X's advertising appear matter? 
+
+Data Driven Approaches: 
+
+1. Effectiveness: The Ghost Ads Methodology 
+2. Context Effects: Field Experiment
+
+---
+# Lecture Plan 
+
+**Ghost Ads**
+
+Discussion based on [Johnson, Lewis and Nubbemeyer (2017)](https://doi.org/10.1509/jmr.15.0297)
+
+**Ad Context Effects**
+
+Discussion Based on [Ada, Abou Nabout and McDonnel Feit (2022)](https://doi.org/10.1177%2F00222437211070219)
 
 ---
 class: inverse, center, middle
 
-# Section XX
+# Ghost Ads
 
 ---
-# Slide Title 
+# A Ghost Ad?
 
-course content here
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+url <- "https://www.ama.org/wp-content/uploads/2019/01/ghost-ads-image.jpg?resize=1170%2C550"
+knitr::include_graphics(url)
+```
+
+---
+# The Difficulty of Ad Effectiveness
+
+Unprecedented granularity of data at individual level
+
+* clicks, site visits, online purchases 
+
+Why not compare the outcomes from one campaign to another?
+
+Challenges: 
+
+1. Which Ad / Sequence of Ads drove a sale?
+2. Consumption patterns are quite volatile 
+3. Chasing small-to-modest effect sizes
+
+Where has progress been made? Online Display Ads 
+
+* aka 'Banner Ads'
+
+---
+# Online Display Ads
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/banner_ad.png")
+```
+
+---
+# How Display Ads Get Chosen
+
+
+```{r, echo = FALSE, fig.align = "center", out.width="45%"}
+knitr::include_graphics("figs/oda_auction.png")
+```
+
+*Source: [Singlegrain](https://www.singlegrain.com/marketing-automation/5-trends-that-will-define-the-new-vision-of-marketing-automation/)*
+
+---
+# Difficulty not always perceived!
+
+> Measuring the online sales impact of an online ad or a paid-search campaign—in which a company pays to have its link appear at the top of a page of search results—is straightforward: We determine who has viewed the ad, then compare online purchases made by those who have and those who have not seen it.
+
+M. Abraham, 2008. Harvard Business Review
+
+---
+# What if Macy's Didn't Advertise? 
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/macy_counterfactual.png")
+```
+
+---
+# What Ad to Show Instead? 
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/macys_psa.png")
+```
+
+---
+# The PSA Experiment 
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/psa_experiment.png")
+```
+
+---
+# PSA Experiments are Costly!
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/psa_cost.png")
+```
+
+---
+# PSAs are the WRONG Baseline
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/psa_baseline_01.png")
+```
+
+---
+# PSAs are the WRONG Baseline
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/psa_baseline_02.png")
+```
+
+---
+# PSAs are the WRONG Baseline
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/psa_baseline_03.png")
+```
+
+---
+# Still not a Ghost Ad!
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+url <- "https://eyesonsolution.com/wp-content/uploads/2021/10/Ghost-Ads.jpg"
+knitr::include_graphics(url)
+```
+
+---
+# Ghost Ads
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/ghost_ads_idea.png")
+```
+
+---
+# Ghost Ads
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/ghost_ads_log.png")
+```
+
+---
+# Ghost Ads
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/ghost_ads_log_02.png")
+```
+
+---
+# Ghost Ads Defined
+
+Ghost Ads work as follows:
+
+* Identify ads in control group that *would have been* treatment ads *if* user was in treatment group
+* Control group user sees whatever ad platform chooses to deliver 
+  - In contrast to a PSA ad
+* Logs a Ghost Ad impression entry in a advertising database that notes where a treatment ad would have occured 
+
+Analysis: Compare behaviour of users in treatment and control group
+
+---
+# Predicted Ghost Ads 
+
+**Practical Challenge**: Ad platforms do not have complete control on what ad is displayed on a website
+
+$\implies$ above needs refinement 
+
+* **Predicted Ghost Ad**: predict whether an ad should be displayed 
+  * Predicted Ghost Ad impression entered into a log entry flags whether ad is predicted to be shown ...
+  * ... even if the ad is *not* shown to a user
+
+---
+# Ghost Ads in Practice
+
+**Case Study**: Def Shop 
+
+* An online platform that allows users to shop for hip-hop clothing, footwear and accessories.
+
+```{r, echo = FALSE, fig.align = "center", out.width="50%"}
+url <- "https://image4.owler.com/logo/defshop-kg_owler_20170831_121955_large.jpg"
+knitr::include_graphics(url)
+```
+
+---
+# The DefShop Experiment 
+
+Motivation:  
+
+> "We're a family business ... we’re naturally forced to double-check every cent we invest. For us it's about ... being as profitable as possible."
+
+In the Ad marketplace: 
+
+> "going from having only a feeling of what our ads might be driving to actually knowing their direct impact. And knowing is a much better feeling!" 
+
+---
+# DefShop Experiment Details 
+
+Customer Segment: Product and Cart Abandoners 
+
+```{r, echo = FALSE, fig.align = "center", out.width="66%"}
+url <- "https://cdn.shopify.com/s/files/1/0070/7032/files/ShoppingCart-Data1_1.png?format=webp&v=1624489324"
+knitr::include_graphics(url)
+```
+
+*Source: Baymard Institute*
+
+---
+# DefShop Experiment Details 
+
+```{r, echo = FALSE, fig.align = "center", out.width="66%"}
+knitr::include_graphics("figs/defshop_case.png")
+```
+
+KPIs:
+
+* Purchases 
+* Site Visits
+* Brand Search Queries 
+
+---
+# DefShop Results
+Experiment Duration: 3 weeks 
+
+Users exposed to the Ad were ...
+
+1. Purchasing more often (12%)
+2. Visiting the site more often (23%)
+3. Searching the brand more (38%)
+
+---
+# Takeaways 
+
+* Measuring online marketing effectiveness is difficult
+* Ghost Ads are an experimental frameowkr that provide the most accurate methodology to measure the effect
+
+---
+class: inverse, center, middle
+
+# Does Advertising Context Matter?
+
+---
+# Why Would Context Matter?
+
+```{r, echo = FALSE, fig.align = "center", out.width="45%"}
+knitr::include_graphics("figs/ad_context_part.png")
+```
+
+- **Discussion Q**: Why might context matter?
+
+---
+# Prevailing Thoughts 
+
+Prior to this paper ... 
+
+* Emphasis on **user targeting**
+  - Advertiser should only care about who sees the ad and not where they see it
+
+* User information is what advertisers should value
+
+* BUT, User info increasingly limited due to changing privacy regulation 
+
+* Are there other ways to target ads to consumers? 
+  - One alternative: website subdomains (e.g., www.nytimes.com/section/business)
+
+---
+# Studying Advertising Context Effects
+
+How the authors proceed: 
+
+* Studied a policy change at a major private ad exchange
+
+policy change $\implies$ Natural Experiment 
+
+Discusson Q: Why do they need an experiment?
+
+---
+# The Experiment 
+
+Platform: Anonymous Private Ad Exchange in EU 
+
+* Private Ad Exchange? 
+  - Sells display ad impressions at approx. 100 reputable websites
+  - Buyers of ads are pre-approved
+
+Implementation:
+
+* **Treatment**: Buyer given information where subdomain appears
+  - Starting May 2016 
+
+* **Treatment Group**: Sites in 2016
+* **Control Group**: Sites in 2015
+
+$\implies$ **Difference in Differences** 
+
+Note: control group is an 'old version of ones-self' 
+
+Discusson Q: Why not simply 2016 data, before vs after change?
+
+---
+# Main Result
+
+```{r, echo = FALSE, fig.align = "center", out.width="45%"}
+knitr::include_graphics("figs/ad_context_did_table.png")
+```
+
+---
+# Main Result
+
+```{r, echo = FALSE, fig.align = "center", out.width="100%"}
+knitr::include_graphics("figs/ad_context_did_graph.png")
+```
+
+---
+# Heterogenous Effects
+
+.pull-left[
+```{r, echo = FALSE, fig.align = "center", out.width="130%"}
+knitr::include_graphics("figs/ad_context_did_heterog.png")
+```
+]
+
+.pull-right[
+```{r, echo = FALSE, fig.align = "center", out.width="130%"}
+knitr::include_graphics("figs/ad_context_did_heterog_02.png")
+```
+
+]
+
+---
+# Implications for Marketers
+
+* Ad context matters to advertisers ... 
+* ... And they are willing to pay more for it 
+* $\implies$ willing to pay for *right* placement
+
+Intuitively: 
+
+* ad for makeup conveys a different message when placed in in a high-end fashion magazine versus on the business page of a newspaper 
+
+Limitation on generalizability: Extremely niche sites 
+
+---
+# Acknowledgements 
+
+These slides borrow quite heavily from two sources: 
+
+* Garret Johnson's slides on ["Ghost Ads"](https://www.youtube.com/watch?v=Z709DAPpSMY) presented at the Advertising Research Foundation
+* Think with Google's ["Def Shop Case Study"](https://services.google.com/fh/files/misc/defshop_case_study.pdf)
+* Ella McDonnel Feit's blog post: ["Ad Context Matters"](https://www.linkedin.com/pulse/ad-context-matters-elea-mcdonnell-feit/)
 
 ---
 # License & Citation
@@ -36,10 +400,10 @@ Suggested Citation:
 
 ```{r, engine='out', eval = FALSE}
 @misc{deerdsms2022,
-      title={"Digital and Social Media Strategies: Lecture Slide Template"},
+      title={"Digital and Social Media Strategies: Advertising Effectivess"},
       author={Lachlan Deer},
       year={2022},
-      url = "https://github.com/tisem-digital-marketing/dsms-lecture-template"
+      url = "https://github.com/tisem-digital-marketing/dsms-lecture-05-ad-effectiveness"
 }
 ```
 
