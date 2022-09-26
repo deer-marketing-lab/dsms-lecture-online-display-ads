@@ -13,7 +13,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-class: font200
+class: font160
 
 # Learning Goals for this Week
 
@@ -34,19 +34,21 @@ knitr::include_graphics("figs/digital_ad_spend.png")
 ```
 
 ---
+class: font160
 # The Business Problem
 
 **Seeking Answers to Strategic Questions:**
 
-1. Are company X's online ads effective at increasing their KPIs?
-2. Does the context where company X's advertising appear matter? 
+1. Are my online ads effective at increasing KPIs?
+2. Does the context where my advertising appears matter? 
 
 Data Driven Approaches: 
 
-1. Effectiveness: The Ghost Ads Methodology 
+1. Effectiveness: The Ghost Ads Methodology
 2. Context Effects: Field Experiment
 
 ---
+class: font160
 # Lecture Plan 
 
 **Ghost Ads**
@@ -71,9 +73,10 @@ knitr::include_graphics(url)
 ```
 
 ---
+class: font140
 # The Difficulty of Ad Effectiveness
 
-Unprecedented granularity of data at individual level
+Unprecedented **granularity** of data at **individual level**
 
 * clicks, site visits, online purchases 
 
@@ -107,6 +110,7 @@ knitr::include_graphics("figs/oda_auction.png")
 *Source: [Singlegrain](https://www.singlegrain.com/marketing-automation/5-trends-that-will-define-the-new-vision-of-marketing-automation/)*
 
 ---
+class: font160
 # Difficulty not always perceived!
 
 > Measuring the online sales impact of an online ad or a paid-search campaign—in which a company pays to have its link appear at the top of a page of search results—is straightforward: We determine who has viewed the ad, then compare online purchases made by those who have and those who have not seen it.
@@ -163,14 +167,6 @@ knitr::include_graphics("figs/psa_baseline_03.png")
 ```
 
 ---
-# Still not a Ghost Ad!
-
-```{r, echo = FALSE, fig.align = "center", out.width="100%"}
-url <- "https://eyesonsolution.com/wp-content/uploads/2021/10/Ghost-Ads.jpg"
-knitr::include_graphics(url)
-```
-
----
 # Ghost Ads
 
 ```{r, echo = FALSE, fig.align = "center", out.width="100%"}
@@ -192,21 +188,25 @@ knitr::include_graphics("figs/ghost_ads_log_02.png")
 ```
 
 ---
+class: font160
 # Ghost Ads Defined
 
-Ghost Ads work as follows:
+**Ghost Ads** work as follows:
 
 * Identify ads in control group that *would have been* treatment ads *if* user was in treatment group
-* Control group user sees whatever ad platform chooses to deliver 
+
+* **Treatment group**: consumer who see **your company's ad** (Macy's in this example)
+* **Control group** user sees **whatever ad platform chooses to deliver**
   - In contrast to a PSA ad
-* Logs a Ghost Ad impression entry in a advertising database that notes where a treatment ad would have occured 
+* Logs a **Ghost Ad impression entry** in an advertising **database** that notes **where a treatment ad would have occured** 
 
 Analysis: Compare behaviour of users in treatment and control group
 
 ---
+class: font160
 # Predicted Ghost Ads 
 
-**Practical Challenge**: Ad platforms do not have complete control on what ad is displayed on a website
+**Practical Challenge**: Ad platforms **do not have complete control** of what ad is displayed on a website
 
 $\implies$ above needs refinement 
 
@@ -214,7 +214,14 @@ $\implies$ above needs refinement
   * Predicted Ghost Ad impression entered into a log entry flags whether ad is predicted to be shown ...
   * ... even if the ad is *not* shown to a user
 
+Analysis: **Ad assignment now imperfect** ... 
+
+* Think about 'measurement error' bias in a regression analysis
+* Needs an additional component in our toolkit to get around this 
+* ... too much for this class
+
 ---
+class: font160
 # Ghost Ads in Practice
 
 **Case Study**: Def Shop 
@@ -227,6 +234,7 @@ knitr::include_graphics(url)
 ```
 
 ---
+class: font160
 # The DefShop Experiment 
 
 Motivation:  
@@ -238,9 +246,12 @@ In the Ad marketplace:
 > "going from having only a feeling of what our ads might be driving to actually knowing their direct impact. And knowing is a much better feeling!" 
 
 ---
+class: font160
 # DefShop Experiment Details 
 
 Customer Segment: Product and Cart Abandoners 
+
+* It's a large proportion of **all** carts
 
 ```{r, echo = FALSE, fig.align = "center", out.width="66%"}
 url <- "https://cdn.shopify.com/s/files/1/0070/7032/files/ShoppingCart-Data1_1.png?format=webp&v=1624489324"
@@ -250,6 +261,7 @@ knitr::include_graphics(url)
 *Source: Baymard Institute*
 
 ---
+class: font160
 # DefShop Experiment Details 
 
 ```{r, echo = FALSE, fig.align = "center", out.width="66%"}
@@ -263,6 +275,7 @@ KPIs:
 * Brand Search Queries 
 
 ---
+class: font160
 # DefShop Results
 Experiment Duration: 3 weeks 
 
@@ -273,10 +286,12 @@ Users exposed to the Ad were ...
 3. Searching the brand more (38%)
 
 ---
+class: font160
 # Takeaways 
 
 * Measuring online marketing effectiveness is difficult
-* Ghost Ads are an experimental frameowkr that provide the most accurate methodology to measure the effect
+* Ghost Ads are an experimental framework that provides a methodology to measure causal effects
+  * ... and can be run on existing large ad networks (eg Google Ads)
 
 ---
 class: inverse, center, middle
@@ -293,6 +308,7 @@ knitr::include_graphics("figs/ad_context_part.png")
 - **Discussion Q**: Why might context matter?
 
 ---
+class: font160
 # Prevailing Thoughts 
 
 Prior to this paper ... 
@@ -308,17 +324,23 @@ Prior to this paper ...
   - One alternative: website subdomains (e.g., www.nytimes.com/section/business)
 
 ---
+class: font160
 # Studying Advertising Context Effects
 
 How the authors proceed: 
 
 * Studied a policy change at a major private ad exchange
 
-policy change $\implies$ Natural Experiment 
+Policy change $\implies$ Natural Experiment 
 
-Discusson Q: Why do they need an experiment?
+**Discusson Q**: Why do they need an experiment?
+
+.font80[
+Remark: A Natural experiment is an empirical study in which individuals are exposed to the experimental and control conditions that are determined by nature or by other factors outside the control of the researchers
+]
 
 ---
+class: font140
 # The Experiment 
 
 Platform: Anonymous Private Ad Exchange in EU 
@@ -356,22 +378,28 @@ knitr::include_graphics("figs/ad_context_did_graph.png")
 ```
 
 ---
+class: font160
 # Heterogenous Effects
 
 .pull-left[
-```{r, echo = FALSE, fig.align = "center", out.width="130%"}
+```{r, echo = FALSE, fig.align = "center", out.width="150%"}
 knitr::include_graphics("figs/ad_context_did_heterog.png")
 ```
 ]
 
 .pull-right[
-```{r, echo = FALSE, fig.align = "center", out.width="130%"}
+```{r, echo = FALSE, fig.align = "center", out.width="150%"}
 knitr::include_graphics("figs/ad_context_did_heterog_02.png")
 ```
-
 ]
 
+Largest effects in:
+
+* **Small markets**
+* **Thick markets**
+
 ---
+class: font160
 # Implications for Marketers
 
 * Ad context matters to advertisers ... 
@@ -380,16 +408,36 @@ knitr::include_graphics("figs/ad_context_did_heterog_02.png")
 
 Intuitively: 
 
-* ad for makeup conveys a different message when placed in in a high-end fashion magazine versus on the business page of a newspaper 
+* Ad for makeup conveys a different message when placed in in a high-end fashion magazine versus on the business page of a newspaper 
 
 Limitation on generalizability: Extremely niche sites 
 
 ---
+class: inverse, center, middle
+
+# Recap
+
+---
+class: font160
+# Summary 
+
+* Ghost Ads presents an experimental framework to study causal effects of online display ads 
+  * Creates a log entry where an ad wins an auction but shows the second ad 
+  * i.e. a competitor in the ad auction 
+  * Which is a "better" control group than serving PSA ads 
+
+* Online display ads are more effective when placed in contexts that better match the brand/product
+  * The idea that context matters is relatively new 
+  * And needs more exploration ...
+
+---
+class: font160
 # Acknowledgements 
 
 These slides borrow quite heavily from two sources: 
 
 * Garret Johnson's slides on ["Ghost Ads"](https://www.youtube.com/watch?v=Z709DAPpSMY) presented at the Advertising Research Foundation
+  * Figures in the section "Ghost Ads" that are not referenced are directly borrowed from these slides
 * Think with Google's ["Def Shop Case Study"](https://services.google.com/fh/files/misc/defshop_case_study.pdf)
 * Ella McDonnel Feit's blog post: ["Ad Context Matters"](https://www.linkedin.com/pulse/ad-context-matters-elea-mcdonnell-feit/)
 
