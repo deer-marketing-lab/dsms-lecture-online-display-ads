@@ -1,16 +1,14 @@
-# Digital and Social Media Strategies: LECTURE NAME
+# Digital and Social Media Strategies: Online Display Advertising Effectiveness
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![lifecycle](https://img.shields.io/badge/version-2022-red.svg)]()
-
-**Things with `XXX` need updating**
+[![lifecycle](https://img.shields.io/badge/version-2023-red.svg)]()
 
 ## Meta-Information
 
 * Module Maintainer: Lachlan Deer (`@lachlandeer`)
-* Course: [Digital and Social Media Strategies](https://tisem-digital-marketing.github.io/XXX-dsms)
+* Course: [Digital and Social Media Strategies](https://deer-marketing-lab.github.io/2023-dsms)
 * Institute: Dept of Marketing, Tilburg University
-* Current Version: [XXX edition](https://tisem-digital-marketing.github.io/XXXX-dsms)
+* Current Version: [2023 edition](https://deer-marketing-lab.github.io/2023-dsms)
 
 ## Introduction
 
@@ -94,17 +92,17 @@ This will install all the packages we need. It may take a while.
 
 ## Suggested Citation (for the Module)
 
-Deer, Lachlan. 2022. Digital and Social Media Strategies: XXX.
+Deer, Lachlan. 2023. Digital and Social Media Strategies: Online Display Advertising Effectiveness.
 Tilburg University.
-url = "https://github.com/tisem-digital-marketing/dsms-lecture-XXX"
+url = "https://github.com/tisem-digital-marketing/dsms-lecture-online-display-ads"
 
 ## Suggested Citation (Template)
 
 ```{r, engine='out', eval = FALSE}
-@misc{deerdsms2022,
+@misc{deerdsms2023,
       title={"Digital and Social Media Strategies: Lecture Slide Template"},
       author={Lachlan Deer},
-      year={2022},
-      url = "https://github.com/tisem-digital-marketing/dsms-lecture-template"
+      year={2023},
+      url = "https://github.com/deer-marketing-lab/dsms-lecture-online-display-ads"
 }
 ```
